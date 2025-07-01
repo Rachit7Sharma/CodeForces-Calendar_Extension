@@ -26,12 +26,6 @@ A Chrome extension that syncs upcoming CodeForces contests to your Google Calend
 
 ---
 
-## Demo
-
-*Add a GIF or screenshot here if available.*
-
----
-
 ## Installation
 
 1. **Clone the repository**
