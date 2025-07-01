@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeForces Calendar Extension</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>CodeForces Calendar Extension</h1>
+            <p class="subtitle">Add upcoming contests to your Google Calendar</p>
+        </header>
+
+        <div class="auth-section">
+            <div id="auth-status" class="auth-status">
+                <div class="auth-disconnected">
+                    <p>Connect your Google Calendar to add contests</p>
+                    <button id="connect-btn" class="btn btn--primary">Connect Google Calendar</button>
+                </div>
+                <div class="auth-connected hidden">
+                    <p>✓ Connected to Google Calendar</p>
+                    <button id="disconnect-btn" class="btn btn--outline btn--sm">Disconnect</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contests-section">
+            <div class="flex justify-between items-center mb-8">
+                <h2>Upcoming Contests</h2>
+                <button id="refresh-btn" class="btn btn--secondary btn--sm">
+                    <span class="refresh-icon">↻</span> Refresh
+                </button>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="loading-spinner"></div>
+                <p>Loading contests...</p>
+            </div>
+
+            <div id="error-message" class="error-message hidden">
+                <p>Failed to load contests. Please try again.</p>
+            </div>
+
+            <div id="contests-list" class="contests-list">
+                <!-- Contests will be populated here -->
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h3>Settings</h3>
+            <div class="form-group">
+                <label class="form-label" for="timezone-select">Timezone</label>
+                <select id="timezone-select" class="form-control">
+                    <option value="UTC">UTC</option>
+                    <option value="America/New_York">Eastern Time</option>
+                    <option value="America/Chicago">Central Time</option>
+                    <option value="America/Denver">Mountain Time</option>
+                    <option value="America/Los_Angeles">Pacific Time</option>
+                    <option value="Europe/London">London</option>
+                    <option value="Europe/Berlin">Berlin</option>
+                    <option value="Asia/Tokyo">Tokyo</option>
+                    <option value="Asia/Shanghai">Shanghai</option>
+                    <option value="Asia/Kolkata">India</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    <input type="checkbox" id="reminder-checkbox" checked>
+                    Add 15-minute reminder for contests
+                </label>
+            </div>
+        </div>
+
+        <div id="success-toast" class="toast toast--success hidden">
+            <p>Contest added to calendar successfully!</p>
+        </div>
+
+        <div id="error-toast" class="toast toast--error hidden">
+            <p>Failed to add contest to calendar. Please try again.</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
